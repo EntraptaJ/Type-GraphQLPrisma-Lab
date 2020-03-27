@@ -8,4 +8,10 @@ Clone this repo
 
 Open in VSCode and relaunch in VSCode Remote Development Container.
 
+Open VSCode terminal and run:
+
+```SH
+npx prisma2 migrate up --experimental
+```
+
 Launch the VSCode Debugging task.
