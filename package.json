@@ -7,9 +7,11 @@
   "private": true,
   "scripts": {
     "test": "jest",
+    "prestart:debug": "node --loader @k-foss/ts-esnode --experimental-specifier-resolution=node --harmony-top-level-await ./bin/build.ts",
     "start:debug": "node --nolazy --inspect=0.0.0.0:9229 --loader @k-foss/ts-esnode --experimental-modules --harmony-optional-chaining --experimental-specifier-resolution=node --harmony-top-level-await ./src/index.ts"
   },
   "dependencies": {
+    "@k-foss/ts-esnode": "^1.2.1",
     "@prisma/client": "^2.0.0-preview024",
     "apollo-server-fastify": "^2.12.0-alpha.4",
     "fastify": "^2.13.0",
@@ -17,7 +19,6 @@
     "type-graphql": "^0.18.0-beta.14"
   },
   "devDependencies": {
-    "@k-foss/ts-esnode": "^1.2.1",
     "@types/node": "^13.9.4",
     "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.25.0",
@@ -31,7 +32,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "nodemon": "^2.0.2",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.2",
     "prisma2": "^2.0.0-preview024",
     "typegraphql-prisma": "^0.1.7",
     "typescript": "^3.8.3"
