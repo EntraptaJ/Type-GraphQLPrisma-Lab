@@ -1,0 +1,36 @@
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:pgpass@database:5432/typegql-prisma"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator typegraphql {
+  provider = "node_modules/typegraphql-prisma/generator.js"
+  output   = "./src/Library/Prisma/TypeGQL"
+}
+
+model User {
+  id    String  @default(cuid()) @id
+  createdAt DateTime @default(now())
+  email     String   @unique
+  name      String?
+  role      Role     @default(USER)
+  posts     Post[]
+}
+
+model Post {
+  id         Int        @id
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  author     User
+  title      String
+  published  Boolean    @default(false)
+}
+
+enum Role {
+  USER
+  ADMIN
+}

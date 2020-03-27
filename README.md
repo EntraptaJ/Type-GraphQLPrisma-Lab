@@ -1,13 +1,11 @@
-# K-FOSS/TS-Core Repository Template
+# KristianFJones/Type-GraphQLPrisma-Lab
 
-This is a TypeScript project template.
+This is a work in progress lab using my @K-FOSS/TS-ESNode, TypeGraphQL's experimental Prisma2 generator, and Prisma2 as a proof of concept playground for what future APIs could look like.
 
 ## Usage
 
-On the GitHub Website click "Use this template"
+Clone this repo
 
-Once you have cloned the template locally search and replace and usage of TS-Core with the name of your new project
+Open in VSCode and relaunch in VSCode Remote Development Container.
 
-## Development
-
-This template is designed to be developed within a VSCode Remote Container. When you open is VSCode you should get a notification prompting to reopen in container.
+Launch the VSCode Debugging task.

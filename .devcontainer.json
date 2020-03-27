@@ -1,6 +1,8 @@
 {
-  "name": "TS-Core Container",
-  "dockerFile": "./Dockerfile.dev",
+  "name": "Type-GraphQL Prisma Lab Container",
+  "dockerComposeFile": ["./docker-compose.dev.yml"],
+  "service": "API",
+  "runServices": ["Database", "API"],
   "settings": {
     // This dev container does include /bin/bash if you prefer to use it instead of ash.
     "terminal.integrated.shell.linux": "/bin/sh"
@@ -10,12 +12,16 @@
     "SHELL": "/bin/sh"
   },
 
-  "extensions": ["esbenp.prettier-vscode", "dbaeumer.vscode-eslint"],
+  "extensions": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "prisma.prisma"
+  ],
   "remoteUser": "node",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
   "workspaceFolder": "/workspace",
   "mounts": [
-    "source=ts-core-modules,target=/workspace/node_modules,type=volume"
+    "source=typegraphql-prisma-lab-modules,target=/workspace/node_modules,type=volume"
   ],
   "postCreateCommand": "sudo chown node node_modules && npm i"
 }
