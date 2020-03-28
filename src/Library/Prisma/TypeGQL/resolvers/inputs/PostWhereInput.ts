@@ -1,7 +1,6 @@
 import { Arg, Args, ArgsType, Ctx, Field, FieldResolver, Float, ID, InputType, Int, Mutation, ObjectType, Query, Resolver, Root, registerEnumType } from "type-graphql";
 import { BooleanFilter } from "../inputs/BooleanFilter";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
-import { IntFilter } from "../inputs/IntFilter";
 import { StringFilter } from "../inputs/StringFilter";
 import { UserWhereInput } from "../inputs/UserWhereInput";
 
@@ -10,11 +9,11 @@ import { UserWhereInput } from "../inputs/UserWhereInput";
   description: undefined,
 })
 export class PostWhereInput {
-  @Field(_type => IntFilter, {
+  @Field(_type => StringFilter, {
     nullable: true,
     description: undefined
   })
-  id?: IntFilter | null;
+  id?: StringFilter | null;
 
   @Field(_type => DateTimeFilter, {
     nullable: true,

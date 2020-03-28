@@ -1,31 +1,25 @@
 // src/Library/Context.ts
-import { PrismaClient, User } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 import { FastifyRequest } from 'fastify';
-import { verify } from 'jsonwebtoken';
+import { getUserFromToken } from './Crypto';
+import { prisma } from './Prisma';
+import { User } from './Prisma/TypeGQL';
 
 export interface Context {
   prisma: PrismaClient;
 
-  user: User;
+  user?: User;
 }
 
-const prisma = new PrismaClient();
-
 export async function getContext(request: FastifyRequest): Promise<Context> {
-  let context: Partial<Context> = { prisma };
+  const context: Partial<Context> = { prisma };
 
   try {
     const authHeader = request.headers.authorization as string | undefined;
     if (authHeader) {
       const token = authHeader.split('Bearer ')[1];
 
-      const tokenData = verify(token, 'IM_SECRET') as { userId: string };
-
-      const user = await prisma.user.findOne({
-        where: {
-          id: tokenData.userId,
-        },
-      });
+      const user = await getUserFromToken(token);
       if (user) context.user = user;
     }
   } catch {}

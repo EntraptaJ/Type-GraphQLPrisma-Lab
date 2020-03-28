@@ -1,10 +1,10 @@
 // src/Library/TypeGQL.ts
-import {
-  UserRelationsResolver,
-  UserCrudResolver,
-} from './Prisma/TypeGQL/index';
 import { buildSchema } from 'type-graphql';
 import { NonEmptyArray } from 'type-graphql/dist/utils/types';
+import {
+  UserCrudResolver,
+  UserRelationsResolver,
+} from './Prisma/TypeGQL/index';
 
 export async function buildGQLSchema(
   resolvers: Function[],

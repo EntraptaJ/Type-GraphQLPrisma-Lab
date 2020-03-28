@@ -1,6 +1,5 @@
 export { BooleanFilter } from "./BooleanFilter";
 export { DateTimeFilter } from "./DateTimeFilter";
-export { IntFilter } from "./IntFilter";
 export { NullableStringFilter } from "./NullableStringFilter";
 export { PostCreateInput } from "./PostCreateInput";
 export { PostCreateManyWithoutAuthorInput } from "./PostCreateManyWithoutAuthorInput";

@@ -25,13 +25,22 @@ Add in the models you would like to create in [schema.prisma](./schema.prisma)
 Run
 
 ```SH
-npx prisma2 generate
+npm run prisma2:generate
 ```
 
 Create Migration/Initial DB Models
 
+#### For non deployed applications
+
 ```SH
-npx prisma2 migrate save --name 'init' --experimental
+npm run prisma2:migrate:create:init
+```
+
+#### Deployed Applications
+
+```sh
+npm run prisma2:migrate:create
+
 ```
 
 Bring up the new database model

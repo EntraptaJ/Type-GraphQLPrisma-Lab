@@ -6,11 +6,11 @@ import { UserUpdateOneRequiredWithoutPostsInput } from "../inputs/UserUpdateOneR
   description: undefined,
 })
 export class PostUpdateInput {
-  @Field(_type => Int, {
+  @Field(_type => String, {
     nullable: true,
     description: undefined
   })
-  id?: number | null;
+  id?: string | null;
 
   @Field(_type => Date, {
     nullable: true,

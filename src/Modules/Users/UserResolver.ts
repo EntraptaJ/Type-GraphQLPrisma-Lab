@@ -1,14 +1,16 @@
 // src/Modules/Users/UserResolver.ts
-import { Resolver, Ctx, Mutation, Arg, Query } from 'type-graphql';
+import { Arg, Ctx, Mutation, Query, Resolver } from 'type-graphql';
+import { createUserToken } from '../../Library/Crypto';
 import { User } from '../../Library/Prisma/TypeGQL';
 import { RegisterInput, UserInput } from './UserInput';
-import { sign } from 'jsonwebtoken';
 
 type Context = import('../../Library/Context').Context;
 
 @Resolver()
 export class CustomUserResolver {
-  @Query()
+  @Query({
+    complexity: 0,
+  })
   helloWorld(): string {
     return 'helloWorld';
   }
@@ -16,10 +18,10 @@ export class CustomUserResolver {
   @Mutation(() => User, { nullable: true })
   async register(
     @Ctx() { prisma }: Context,
-    @Arg('input') input: RegisterInput,
+    @Arg('input') data: RegisterInput,
   ): Promise<User | null> {
     const newUser = await prisma.user.create({
-      data: input,
+      data,
     });
 
     return newUser;
@@ -42,16 +44,11 @@ export class CustomUserResolver {
         email,
       },
     });
-    if (!user) throw new Error('Invalid email or password');
+    if (!user) throw new Error('INVALID_EMAIl');
 
     // TODO: CRYPTO AND SIGN AND SALT PASSWORDS
-    if (user.password !== password) throw new Error('Invalid password');
+    if (user.password !== password) throw new Error('INVALID_PASSWORD');
 
-    return sign(
-      {
-        userId: user.id,
-      },
-      'IM_SECRET',
-    );
+    return createUserToken(user);
   }
 }

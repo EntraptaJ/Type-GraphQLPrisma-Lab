@@ -1,5 +1,4 @@
 // src/Modules/Users/UserInput.ts
-
 import { User } from '@prisma/client';
 import { Field, InputType } from 'type-graphql';
 

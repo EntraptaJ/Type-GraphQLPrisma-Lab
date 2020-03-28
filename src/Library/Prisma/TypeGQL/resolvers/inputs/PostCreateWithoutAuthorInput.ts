@@ -5,11 +5,11 @@ import { Arg, Args, ArgsType, Ctx, Field, FieldResolver, Float, ID, InputType, I
   description: undefined,
 })
 export class PostCreateWithoutAuthorInput {
-  @Field(_type => Int, {
-    nullable: false,
+  @Field(_type => String, {
+    nullable: true,
     description: undefined
   })
-  id!: number;
+  id?: string | null;
 
   @Field(_type => Date, {
     nullable: true,

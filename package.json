@@ -7,6 +7,9 @@
   "private": true,
   "scripts": {
     "test": "jest",
+    "prisma2:generate": "prisma2 generate",
+    "prisma2:migrate:create": "npx prisma2 migrate save --name 'init' --experimental",
+    "prisma2:migrate:create:init": "npx prisma2 migrate save --name 'init' --experimental",
     "prestart:debug": "node --loader @k-foss/ts-esnode --experimental-specifier-resolution=node --harmony-top-level-await ./bin/build.ts",
     "start": "node --loader @k-foss/ts-esnode --experimental-modules --harmony-optional-chaining --experimental-specifier-resolution=node --harmony-top-level-await ./src/index.ts",
     "start:debug": "node --nolazy --inspect=0.0.0.0:9229 --loader @k-foss/ts-esnode --experimental-modules --harmony-optional-chaining --experimental-specifier-resolution=node --harmony-top-level-await ./src/index.ts"

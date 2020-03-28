@@ -5,11 +5,11 @@ import { Arg, Args, ArgsType, Ctx, Field, FieldResolver, Float, ID, InputType, I
   description: undefined,
 })
 export class PostUpdateManyDataInput {
-  @Field(_type => Int, {
+  @Field(_type => String, {
     nullable: true,
     description: undefined
   })
-  id?: number | null;
+  id?: string | null;
 
   @Field(_type => Date, {
     nullable: true,

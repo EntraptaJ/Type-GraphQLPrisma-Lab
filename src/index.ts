@@ -1,18 +1,14 @@
 // src/index.ts
-import { ApolloServer } from 'apollo-server-fastify';
 import fastify from 'fastify';
 import 'reflect-metadata';
-import { getContext } from './Library/Context';
+import { createApolloServer } from './Library/Apollo';
 import { loadModules } from './Library/ModuleLoader';
-import { User } from './Library/Prisma/TypeGQL';
 
 const [{ gqlSchema }] = await Promise.all([loadModules()]);
 
 const webServer = fastify();
-const apiServer = new ApolloServer({
-  schema: gqlSchema,
-  context: getContext,
-});
+
+const apiServer = await createApolloServer(gqlSchema);
 
 webServer.register(apiServer.createHandler());
 

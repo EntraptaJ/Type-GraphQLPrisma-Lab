@@ -17,7 +17,8 @@
 
     // Features
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "useDefineForClassFields": true
   },
   "include": ["src/**/*.ts"]
 }

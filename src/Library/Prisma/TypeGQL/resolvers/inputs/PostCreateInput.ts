@@ -6,11 +6,11 @@ import { UserCreateOneWithoutPostsInput } from "../inputs/UserCreateOneWithoutPo
   description: undefined,
 })
 export class PostCreateInput {
-  @Field(_type => Int, {
-    nullable: false,
+  @Field(_type => String, {
+    nullable: true,
     description: undefined
   })
-  id!: number;
+  id?: string | null;
 
   @Field(_type => Date, {
     nullable: true,

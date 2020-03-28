@@ -6,11 +6,11 @@ import { User } from "../models/User";
   description: undefined,
 })
 export class Post {
-  @Field(_type => Int, {
+  @Field(_type => String, {
     nullable: false,
     description: undefined,
   })
-  id!: number;
+  id!: string;
 
   @Field(_type => Date, {
     nullable: false,
