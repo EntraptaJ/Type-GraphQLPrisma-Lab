@@ -15,3 +15,27 @@ npx prisma2 migrate up --experimental
 ```
 
 Launch the VSCode Debugging task.
+
+## Usage
+
+### Prisma Data Model
+
+Add in the models you would like to create in [schema.prisma](./schema.prisma)
+
+Run
+
+```SH
+npx prisma2 generate
+```
+
+Create Migration/Initial DB Models
+
+```SH
+npx prisma2 migrate save --name 'init' --experimental
+```
+
+Bring up the new database model
+
+```SH
+npx prisma2 migrate up --experimental
+```
