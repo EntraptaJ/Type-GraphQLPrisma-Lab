@@ -17,9 +17,7 @@ services:
     networks:
       - internalDB
     environment:
-      DB_HOST: 'Database'
-      DB_USERNAME: 'postgres'
-      DB_PASSWORD: 'password'
+      DB_URL: 'postgresql://postgres:pgpass@database:5432/typegql-prisma'
     volumes:
       - ./:/workspace:delegated
       - apiModules:/workspace/node_modules

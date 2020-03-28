@@ -31,6 +31,12 @@ export class UserCreateInput {
   })
   name?: string | null;
 
+  @Field(_type => String, {
+    nullable: false,
+    description: undefined
+  })
+  password!: string;
+
   @Field(_type => Role, {
     nullable: true,
     description: undefined

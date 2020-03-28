@@ -34,5 +34,11 @@ export class UserOrderByInput {
     nullable: true,
     description: undefined
   })
+  password?: keyof typeof OrderByArg | null;
+
+  @Field(_type => OrderByArg, {
+    nullable: true,
+    description: undefined
+  })
   role?: keyof typeof OrderByArg | null;
 }

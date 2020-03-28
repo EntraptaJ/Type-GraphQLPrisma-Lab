@@ -4,6 +4,7 @@ import fastify from 'fastify';
 import 'reflect-metadata';
 import { getContext } from './Library/Context';
 import { loadModules } from './Library/ModuleLoader';
+import { User } from './Library/Prisma/TypeGQL';
 
 const [{ gqlSchema }] = await Promise.all([loadModules()]);
 

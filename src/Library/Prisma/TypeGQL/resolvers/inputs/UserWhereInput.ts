@@ -34,6 +34,12 @@ export class UserWhereInput {
   })
   name?: NullableStringFilter | null;
 
+  @Field(_type => StringFilter, {
+    nullable: true,
+    description: undefined
+  })
+  password?: StringFilter | null;
+
   @Field(_type => RoleFilter, {
     nullable: true,
     description: undefined
