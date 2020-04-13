@@ -1,10 +1,7 @@
 datasource db {
   provider = "postgresql"
-
   url = "***"
 }
-
-
 
 generator client {
   provider = "prisma-client-js"
@@ -16,30 +13,22 @@ generator typegraphql {
 }
 
 model User {
-
-  id    String  @default(cuid()) @id
+  id    String  @id @default(cuid())
   createdAt DateTime @default(now())
-  
-  // User's email
   email     String   @unique
-  
-  // Users name
+  password  String
   name      String?
-
-  // User's password
-  password String
-
   role      Role     @default(USER)
   posts     Post[]
 }
 
 model Post {
-  id         Int        @id
+  id         Int        @id @default(autoincrement())
   createdAt  DateTime   @default(now())
   updatedAt  DateTime   @updatedAt
-  author     User
-  title      String
   published  Boolean    @default(false)
+  title      String
+  author     User
 }
 
 enum Role {

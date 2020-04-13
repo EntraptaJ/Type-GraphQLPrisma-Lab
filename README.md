@@ -11,7 +11,7 @@ Open in VSCode and relaunch in VSCode Remote Development Container.
 Open VSCode terminal and run:
 
 ```SH
-npx prisma2 migrate up --experimental
+npm run prisma2:migrate:up
 ```
 
 Launch the VSCode Debugging task.
@@ -46,5 +46,5 @@ npm run prisma2:migrate:create
 Bring up the new database model
 
 ```SH
-npx prisma2 migrate up --experimental
+npm run prisma2:migrate:up
 ```

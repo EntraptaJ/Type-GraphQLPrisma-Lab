@@ -5,9 +5,9 @@ import { Arg, Args, ArgsType, Ctx, Field, FieldResolver, Float, ID, InputType, I
   description: undefined,
 })
 export class PostWhereUniqueInput {
-  @Field(_type => String, {
+  @Field(_type => Int, {
     nullable: true,
     description: undefined
   })
-  id?: string | null;
+  id?: number | null;
 }

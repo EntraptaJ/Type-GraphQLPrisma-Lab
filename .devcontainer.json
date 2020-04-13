@@ -1,21 +1,25 @@
 {
   "name": "Type-GraphQL Prisma Lab Container",
-  "dockerComposeFile": ["./docker-compose.dev.yml"],
+  "dockerComposeFile": [
+    "./docker-compose.dev.yml"
+  ],
   "service": "API",
-  "runServices": ["Database", "API"],
+  "runServices": [
+    "Database",
+    "API"
+  ],
   "settings": {
     // This dev container does include /bin/bash if you prefer to use it instead of ash.
     "terminal.integrated.shell.linux": "/bin/sh"
   },
-
   "remoteEnv": {
     "SHELL": "/bin/sh"
   },
-
   "extensions": [
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
-    "prisma.prisma"
+    "prisma.prisma",
+    "visualstudioexptteam.vscodeintellicode"
   ],
   "remoteUser": "node",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",

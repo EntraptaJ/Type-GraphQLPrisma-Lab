@@ -28,13 +28,13 @@ export class UserUpdateManyMutationInput {
     nullable: true,
     description: undefined
   })
-  name?: string | null;
+  password?: string | null;
 
   @Field(_type => String, {
     nullable: true,
     description: undefined
   })
-  password?: string | null;
+  name?: string | null;
 
   @Field(_type => Role, {
     nullable: true,

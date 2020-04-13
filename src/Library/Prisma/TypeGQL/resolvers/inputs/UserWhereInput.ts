@@ -28,17 +28,17 @@ export class UserWhereInput {
   })
   email?: StringFilter | null;
 
-  @Field(_type => NullableStringFilter, {
-    nullable: true,
-    description: undefined
-  })
-  name?: NullableStringFilter | null;
-
   @Field(_type => StringFilter, {
     nullable: true,
     description: undefined
   })
   password?: StringFilter | null;
+
+  @Field(_type => NullableStringFilter, {
+    nullable: true,
+    description: undefined
+  })
+  name?: NullableStringFilter | null;
 
   @Field(_type => RoleFilter, {
     nullable: true,

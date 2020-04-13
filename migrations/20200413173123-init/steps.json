@@ -29,7 +29,7 @@
         "source": "db"
       },
       "argument": "url",
-      "value": "\"postgresql://postgres:pgpass@database:5432/typegql-prisma\""
+      "value": "env(\"DB_URL\")"
     },
     {
       "tag": "CreateModel",
@@ -41,6 +41,17 @@
       "field": "id",
       "type": "String",
       "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "id"
+        },
+        "directive": "id"
+      }
     },
     {
       "tag": "CreateDirective",
@@ -66,17 +77,6 @@
       },
       "argument": "",
       "value": "cuid()"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "User",
-          "field": "id"
-        },
-        "directive": "id"
-      }
     },
     {
       "tag": "CreateField",
@@ -127,6 +127,13 @@
         },
         "directive": "unique"
       }
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "password",
+      "type": "String",
+      "arity": "Required"
     },
     {
       "tag": "CreateField",
@@ -197,6 +204,31 @@
       }
     },
     {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Post",
+          "field": "id"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Post",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "autoincrement()"
+    },
+    {
       "tag": "CreateField",
       "model": "Post",
       "field": "createdAt",
@@ -249,20 +281,6 @@
     {
       "tag": "CreateField",
       "model": "Post",
-      "field": "author",
-      "type": "User",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Post",
-      "field": "title",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Post",
       "field": "published",
       "type": "Boolean",
       "arity": "Required"
@@ -291,6 +309,20 @@
       },
       "argument": "",
       "value": "false"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Post",
+      "field": "title",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Post",
+      "field": "author",
+      "type": "User",
+      "arity": "Required"
     }
   ]
 }

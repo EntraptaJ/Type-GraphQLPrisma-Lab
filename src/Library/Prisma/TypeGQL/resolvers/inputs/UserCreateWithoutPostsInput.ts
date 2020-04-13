@@ -25,16 +25,16 @@ export class UserCreateWithoutPostsInput {
   email!: string;
 
   @Field(_type => String, {
-    nullable: true,
-    description: undefined
-  })
-  name?: string | null;
-
-  @Field(_type => String, {
     nullable: false,
     description: undefined
   })
   password!: string;
+
+  @Field(_type => String, {
+    nullable: true,
+    description: undefined
+  })
+  name?: string | null;
 
   @Field(_type => Role, {
     nullable: true,

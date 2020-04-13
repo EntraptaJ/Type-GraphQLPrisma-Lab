@@ -4,11 +4,10 @@ import 'reflect-metadata';
 import { createApolloServer } from './Library/Apollo';
 import { loadModules } from './Library/ModuleLoader';
 
-const [{ gqlSchema }] = await Promise.all([loadModules()]);
+const [modules] = await Promise.all([loadModules()]);
 
 const webServer = fastify();
-
-const apiServer = await createApolloServer(gqlSchema);
+const apiServer = await createApolloServer(modules.gqlSchema);
 
 webServer.register(apiServer.createHandler());
 

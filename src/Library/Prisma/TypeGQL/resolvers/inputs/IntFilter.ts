@@ -1,44 +1,55 @@
 import { Arg, Args, ArgsType, Ctx, Field, FieldResolver, Float, ID, InputType, Int, Mutation, ObjectType, Query, Resolver, Root, registerEnumType } from "type-graphql";
-import { OrderByArg } from "../../enums/OrderByArg";
 
 @InputType({
   isAbstract: true,
   description: undefined,
 })
-export class UserOrderByInput {
-  @Field(_type => OrderByArg, {
+export class IntFilter {
+  @Field(_type => Int, {
     nullable: true,
     description: undefined
   })
-  id?: keyof typeof OrderByArg | null;
+  equals?: number | null;
 
-  @Field(_type => OrderByArg, {
+  @Field(_type => Int, {
     nullable: true,
     description: undefined
   })
-  createdAt?: keyof typeof OrderByArg | null;
+  not?: number | null;
 
-  @Field(_type => OrderByArg, {
+  @Field(_type => [Int], {
     nullable: true,
     description: undefined
   })
-  email?: keyof typeof OrderByArg | null;
+  in?: number[] | null;
 
-  @Field(_type => OrderByArg, {
+  @Field(_type => [Int], {
     nullable: true,
     description: undefined
   })
-  password?: keyof typeof OrderByArg | null;
+  notIn?: number[] | null;
 
-  @Field(_type => OrderByArg, {
+  @Field(_type => Int, {
     nullable: true,
     description: undefined
   })
-  name?: keyof typeof OrderByArg | null;
+  lt?: number | null;
 
-  @Field(_type => OrderByArg, {
+  @Field(_type => Int, {
     nullable: true,
     description: undefined
   })
-  role?: keyof typeof OrderByArg | null;
+  lte?: number | null;
+
+  @Field(_type => Int, {
+    nullable: true,
+    description: undefined
+  })
+  gt?: number | null;
+
+  @Field(_type => Int, {
+    nullable: true,
+    description: undefined
+  })
+  gte?: number | null;
 }

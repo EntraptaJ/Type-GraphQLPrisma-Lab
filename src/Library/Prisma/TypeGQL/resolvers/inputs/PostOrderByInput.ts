@@ -28,7 +28,7 @@ export class PostOrderByInput {
     nullable: true,
     description: undefined
   })
-  author?: keyof typeof OrderByArg | null;
+  published?: keyof typeof OrderByArg | null;
 
   @Field(_type => OrderByArg, {
     nullable: true,
@@ -40,5 +40,5 @@ export class PostOrderByInput {
     nullable: true,
     description: undefined
   })
-  published?: keyof typeof OrderByArg | null;
+  author?: keyof typeof OrderByArg | null;
 }

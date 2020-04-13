@@ -5,12 +5,6 @@ import { Arg, Args, ArgsType, Ctx, Field, FieldResolver, Float, ID, InputType, I
   description: undefined,
 })
 export class PostCreateWithoutAuthorInput {
-  @Field(_type => String, {
-    nullable: true,
-    description: undefined
-  })
-  id?: string | null;
-
   @Field(_type => Date, {
     nullable: true,
     description: undefined
@@ -23,15 +17,15 @@ export class PostCreateWithoutAuthorInput {
   })
   updatedAt?: Date | null;
 
-  @Field(_type => String, {
-    nullable: false,
-    description: undefined
-  })
-  title!: string;
-
   @Field(_type => Boolean, {
     nullable: true,
     description: undefined
   })
   published?: boolean | null;
+
+  @Field(_type => String, {
+    nullable: false,
+    description: undefined
+  })
+  title!: string;
 }

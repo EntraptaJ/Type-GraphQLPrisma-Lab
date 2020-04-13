@@ -6,11 +6,11 @@ import { User } from "../models/User";
   description: undefined,
 })
 export class Post {
-  @Field(_type => String, {
+  @Field(_type => Int, {
     nullable: false,
     description: undefined,
   })
-  id!: string;
+  id!: number;
 
   @Field(_type => Date, {
     nullable: false,
@@ -24,7 +24,11 @@ export class Post {
   })
   updatedAt!: Date;
 
-  author?: User;
+  @Field(_type => Boolean, {
+    nullable: false,
+    description: undefined,
+  })
+  published!: boolean;
 
   @Field(_type => String, {
     nullable: false,
@@ -32,9 +36,5 @@ export class Post {
   })
   title!: string;
 
-  @Field(_type => Boolean, {
-    nullable: false,
-    description: undefined,
-  })
-  published!: boolean;
+  author?: User;
 }
