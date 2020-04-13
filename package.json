@@ -14,7 +14,9 @@
     "prisma2:migrate:up": "prisma2 migrate up --experimental",
     "prestart:debug": "node --loader @k-foss/ts-esnode --experimental-specifier-resolution=node --harmony-top-level-await ./bin/build.ts",
     "start": "node --loader @k-foss/ts-esnode --experimental-modules --harmony-optional-chaining --experimental-specifier-resolution=node --harmony-top-level-await ./src/index.ts",
-    "start:debug": "node --nolazy --inspect=0.0.0.0:9229 --loader @k-foss/ts-esnode --experimental-modules --harmony-optional-chaining --experimental-specifier-resolution=node --harmony-top-level-await ./src/index.ts"
+    "start:debug": "node --nolazy --inspect=0.0.0.0:9229 --loader @k-foss/ts-esnode --experimental-modules --harmony-optional-chaining --experimental-specifier-resolution=node --harmony-top-level-await ./src/index.ts",
+    "prettier": "prettier --config .prettierrc --check 'src/**/*ts'",
+    "lint": "eslint --ext tsx,ts src"
   },
   "dependencies": {
     "@k-foss/ts-esnode": "^1.3.5",
