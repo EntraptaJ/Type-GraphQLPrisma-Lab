@@ -46,7 +46,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "nodemon": "^2.0.4",
     "prettier": "^2.0.5",
-    "prisma2": "^2.0.0-preview024",
+    "prisma2": "^2.0.0-preview025",
     "typegraphql-prisma": "^0.2.0"
   },
   "author": "",
